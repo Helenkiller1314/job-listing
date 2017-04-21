@@ -182,7 +182,8 @@
   //---------Box---------
 
   .box {
-      background-image: url("header.jpg");
+      // background-image: url("header.jpg");
+      background-image: image-url("header.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       // background-size: 1500px 600px;
