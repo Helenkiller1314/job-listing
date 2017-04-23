@@ -116,6 +116,18 @@
 }
 
  //---------Navbar---------
+ .navbar-fixed-top {
+   top: 0px;
+ }
+
+ .navbar-fixed-top, .navbar-fixed-bottom {
+   position: fixed;
+   top: 0px;
+   right: 0;
+   left: 0;
+   z-index: 1030;
+
+ }
 
   .navbar-brand > img {
       display: inline-block; //图片和链接文字显示在同一行
