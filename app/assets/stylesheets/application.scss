@@ -151,10 +151,11 @@ body {
       width: 32px; //定制图片宽度
       height: 32px; //定制图片高度
   }
+
  .navbar-default {
      background-color: #212121;
      border-color: #212121;
-     margin-bottom: 0;
+    //  margin-bottom: 0;
      border-radius: 0;
  }
 
@@ -216,6 +217,7 @@ body {
       background-size: cover;
       // background-size: 1500px 600px;
       margin-bottom: 50px;
+      margin-top: -20px;
       padding-bottom: 110px;
 
       .box-inner {
@@ -537,4 +539,12 @@ padding-top: 7px;
   margin-left: 20px;
   margin-top: 40px;
   float: left;
+}
+
+
+//-----common ---
+.col-centered {
+  float: none;
+  margin: 0 auto;
+
 }
