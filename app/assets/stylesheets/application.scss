@@ -20,6 +20,8 @@
 @import 'font-awesome';
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
+$red: #ad0000;
+
 /****** footer always on the bottom ******/
 
 
@@ -262,20 +264,55 @@ body {
 
   //---------Footer---------
 
-  .footer {
+  // .footer {
+  //    position: absolute;
+  //    bottom: 0;
+  //    width: 100%;
+  //    height: 100px;
+  //    background-color: #233140;
+  //
+  //    p {
+  //       color: white;
+  //      margin-top: 30px;
+  //    }
+  //   }
+
+
+  footer {
+    padding: 3em 0;
+  }
+
+  /*Footer*/
+
+footer {
      position: absolute;
-     bottom: 0;
      width: 100%;
-     /* Set the fixed height of the footer here */
-     height: 100px;
-     background-color: #233140;
+    //  bottom: 0;
+  background: #000;
+}
 
-     p {
-        color: white;
-       margin-top: 30px;
-     }
-    }
+  .soc-media-ul {
+  display: flex;
+  justify-content: center;
+}
 
+.soc-media-ul li:not(:first-child) a {
+  margin-left: 1em;
+}
+
+.soc-media-ul a {
+  display: block;
+  padding: 0.5em .65rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 50%;
+  border: 2px solid;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
 
    //---------Content---------
 
@@ -426,125 +463,23 @@ padding-top: 7px;
    letter-spacing: 5px;
  }
 
- /** 接下来两部分
- 第一部分是优势
- 第二部分是工作搜索
-
- **/
-//共同部分，短线
-
-
-.welcome-short-line {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
-  top: 11%;
-  z-index: 53;
-  width: 70px;
-  height: 2px;
-  position: relative;
-  background: #448AFF;
-  border-style: none;
-  border-radius: 0;
-}
-
-/* 第一部分：优势
-*/
-
-.welcome-part1-01 {
-  //display: block;没有作用
-  margin-top: -60px; //
-  margin-bottom: 0;
-  width: 100%;
-  height: 550px;
-  min-width: 250px;
-  background: #ececec;
-}
-//定义了划分三块
-
-.welcome-part1-01 .welcome-part1-block {
-  display: block;
-  width: 960px;
-  height: 450px;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  padding-top: 60px;
-}
-
-.welcome-part1-title {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 12%;
-  z-index: 52;
-  width: auto;
-  height: auto;
-  position: relative;
-  color: #448AFF;
-  font-weight: bold;
-  text-align: center;
-}
-//定义了划分三块中的一块
-
-.welcome-part1-01-box {
-  display: block;
-  border-style: none;
-  border-radius: 0;
-  z-index: 38;
-  width: 300px;
-  height: 200px;
-  position: relative;
-  margin-left: 20px;
-  margin-top: 40px;
-  float: left;
-}
-
-.welcome-part1-01-title {
-  color: #448AFF;
-  font-weight: bold;
-  text-align: center;
-}
-//定义了划分三块中的第二块
-
-.welcome-part2 {
-  display: block;
-  margin-top: -60px;
-  margin-bottom: 0;
-  width: 100%;
-  height: 550px;
-  min-width: 960px;
-  background: #fff;
-}
-
-.welcome-part2 .welcome-part2-block {
-  display: block;
-  width: 960px;
-  height: 450px;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  padding-top: 60px;
-}
-
-.welcome-part2-box {
-  display: block;
-  border-style: none;
-  border-radius: 0;
-  z-index: 38;
-  width: 300px;
-  height: 200px;
-  position: relative;
-  margin-left: 20px;
-  margin-top: 40px;
-  float: left;
-}
-
 
 //-----common ---
 .col-centered {
   float: none;
   margin: 0 auto;
 
+}
+
+.container > h1 {
+   font-weight: 300;
+   text-align: center;
+   text-transform: uppercase;
+ }
+
+
+//-----fourth part ---
+
+.sec-testimonials p {
+  font-style: italic;
 }

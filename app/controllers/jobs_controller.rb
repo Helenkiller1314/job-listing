@@ -9,6 +9,22 @@ before_action :validate_search_key, only: [:search]
       Job.published.order('wage_lower_bound DESC')
     when 'by_upper_bound'
       Job.published.order('wage_upper_bound DESC')
+    when 'by_developer'
+      Job.where(:category => "developer").recent
+    when 'by_healthcare'
+      Job.where(:category => "healthcare").recent
+    when 'by_customer-service'
+      Job.where(:category => "customer-service").recent
+    when 'by_sales-marketing'
+      Job.where(:category => "sales-marketing").recent
+    when 'by_legal'
+      Job.where(:category => "legal").recent
+    when 'by_non-profit'
+      Job.where(:category => "non-profit").recent
+    when 'by_human-resource'
+      Job.where(:category => "human-resource").recent
+    when 'by_design'
+      Job.where(:category => "design").recent
     else
       Job.published.recent
     end
