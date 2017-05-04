@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<!-- <body>
   <div class="container-fluid">
     <%= render "common/navbar"%>
     <%= render "common/flashes"%>
@@ -28,4 +28,30 @@
   <%= render "common/footer"%>
 </body>
 
+</html> -->
+
+
+<body>
+   <%= render "common/navbar" %>
+   <%= render "common/flashes" %>
+   <div class="container-fluid siderbar">
+     <div class="row">
+       <div class="col-md-2 col-sm-12">
+         <nav class="nav-sidebar">
+              <ul class="nav">
+                  <li class="active"><%= link_to("Jobs",admin_jobs_path) %></li>
+                  <li><%= link_to("User", jobs_path) %></li>
+                  <li class="nav-divider"></li>
+                  <li><%= link_to("<span class='glyphicon glyphicon-off'></span> Sign out".html_safe, destroy_user_session_path, method: :delete) %></li>
+              </ul>
+          </nav>
+       </div>
+       <div class="col-md-10 col-sm-12">
+         <%= yield %>
+       </div>
+     </div>
+   </div>
+
+   <%= render "common/footer" %>
+ </body>
 </html>
