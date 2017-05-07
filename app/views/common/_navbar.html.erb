@@ -49,9 +49,9 @@
               </a>
               <ul class="dropdown-menu">
                 <% if current_user.admin? %>
-                <li><%= link_to("Admin Panel", admin_jobs_path)%></li>
+                <li><%= link_to("管理面板", admin_jobs_path)%></li>
                 <% end %>
-              <li><%= link_to("Log Out", destroy_user_session_path, method: :delete)%></li>
+              <li><%= link_to("登出", destroy_user_session_path, method: :delete)%></li>
             </ul>
 
           </li>
@@ -75,7 +75,7 @@
            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
          </div>
          <div class="form-actions">
-           <%= f.button :submit, "Log in" %>
+           <%= f.button :submit, "登录" %>
          </div>
        <% end %>
     </div>
@@ -96,7 +96,7 @@
           <%= f.input :password_confirmation, required: true %>
         </div>
         <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "注册" %>
         </div>
       <% end %>
     </div>

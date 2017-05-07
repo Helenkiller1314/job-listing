@@ -9,22 +9,22 @@ before_action :validate_search_key, only: [:search]
       Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 5)
     when 'by_upper_bound'
       Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 5)
-    when 'by_developer'
-      Job.where(:category => "developer").recent
-    when 'by_healthcare'
-      Job.where(:category => "healthcare").recent
-    when 'by_customer-service'
-      Job.where(:category => "customer-service").recent
-    when 'by_sales-marketing'
-      Job.where(:category => "sales-marketing").recent
-    when 'by_legal'
-      Job.where(:category => "legal").recent
-    when 'by_non-profit'
-      Job.where(:category => "non-profit").recent
-    when 'by_human-resource'
-      Job.where(:category => "human-resource").recent
-    when 'by_design'
-      Job.where(:category => "design").recent
+    when 'by_产品经理／主管'
+      Job.where(:category => "产品经理／主管").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_游戏开发'
+      Job.where(:category => "游戏开发").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_新媒体运营'
+      Job.where(:category => "新媒体运营").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_硬件开发'
+      Job.where(:category => "硬件开发").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_web开发'
+      Job.where(:category => "web开发").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_Android开发'
+      Job.where(:category => "Android开发").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_云计算'
+      Job.where(:category => "云计算").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_测试工程师'
+      Job.where(:category => "测试工程师").recent.paginate(:page => params[:page], :per_page => 5)
     else
       Job.published.recent.paginate(:page => params[:page], :per_page => 5)
     end
@@ -50,7 +50,7 @@ before_action :validate_search_key, only: [:search]
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to jobs_path
+      redirect_to root_path
     else
       render :new
     end
@@ -59,7 +59,7 @@ before_action :validate_search_key, only: [:search]
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
-      redirect_to jobs_path, notice: "Job edited!"
+      redirect_to root_path, notice: "岗位更新成功！"
     else
       render :edit
     end
@@ -68,7 +68,7 @@ before_action :validate_search_key, only: [:search]
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path, alert: "Job Deleted!"
+    redirect_to root_path, alert: "岗位成功删除!"
   end
 
 
