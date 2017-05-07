@@ -2,7 +2,7 @@
 
 <%= f.input :title, :label => "岗位"  %>
 <%= f.input :description, :label => "岗位描述"  %>
-<%= f.input :category, :collection => ["产品经理／主管","游戏开发", "新媒体运营", "硬件开发", "web开发", "Android开发", "云计算", "测试工程师"], :selected => "产品经理／主管", :label => "类别" %>
+<%= f.input :category, :collection => ["产品经理","游戏开发", "新媒体运营", "硬件开发", "web开发", "Android开发", "云计算", "测试工程师"], :selected => "产品经理", :label => "类别" %>
 <%= f.input :wage_lower_bound, :label => "薪资下限"%>
 <%= f.input :wage_upper_bound, :label => "薪资上限"%>
 <%= f.input :company, :label => "公司" %>

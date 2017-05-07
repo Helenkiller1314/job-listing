@@ -9,8 +9,8 @@ before_action :validate_search_key, only: [:search]
       Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 5)
     when 'by_upper_bound'
       Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 5)
-    when 'by_产品经理／主管'
-      Job.where(:category => "产品经理／主管").recent.paginate(:page => params[:page], :per_page => 5)
+    when 'by_产品经理'
+      Job.where(:category => "产品经理").recent.paginate(:page => params[:page], :per_page => 5)
     when 'by_游戏开发'
       Job.where(:category => "游戏开发").recent.paginate(:page => params[:page], :per_page => 5)
     when 'by_新媒体运营'
@@ -29,6 +29,7 @@ before_action :validate_search_key, only: [:search]
       Job.published.recent.paginate(:page => params[:page], :per_page => 5)
     end
   end
+
 
   def new
     @job = Job.new
@@ -79,13 +80,101 @@ before_action :validate_search_key, only: [:search]
     end
   end
 
-  def category
-    if params[:order1]
-      @jobs = Job.published.where(:category => "产品经理／主管")
-    else params[:order1] && params[:order]
-      @jobs = Job.published.where(:category => "产品经理／主管").order("wage_lower_bound DESC")
+  # def category
+  #   if params[:order1]
+  #     @jobs = Job.published.where(:category => "产品经理")
+  #   else params[:order1] && params[:order]
+  #     @jobs = Job.published.where(:category => "产品经理").order("wage_lower_bound DESC")
+  #   end
+  # end
+
+  def 产品经理
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "产品经理").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "产品经理").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "产品经理").recent.paginate(:page => params[:page], :per_page => 5)
+              end
     end
-  end
+
+    def 游戏开发
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "游戏开发").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "游戏开发").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "游戏开发").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def 新媒体运营
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "新媒体运营").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "新媒体运营").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "新媒体运营").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def 硬件开发
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "硬件开发").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "硬件开发").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "硬件开发").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def web开发
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "web开发").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "web开发").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "web开发").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def Android开发
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "Android开发").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "Android开发").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "Android开发").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def 云计算
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "云计算").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "云计算").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "云计算").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
+
+    def 测试工程师
+      @jobs = case params[:order]
+              when 'by_lower_bound'
+                Job.published.where(:category => "测试工程师").lower_salary.paginate(:page => params[:page], :per_page => 5)
+              when 'by_upper_bound'
+                Job.published.where(:category => "测试工程师").upper_salary.paginate(:page => params[:page], :per_page => 5)
+              else
+                Job.published.where(:category => "测试工程师").recent.paginate(:page => params[:page], :per_page => 5)
+              end
+    end
 
 
   protected

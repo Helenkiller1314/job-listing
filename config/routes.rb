@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :category
+      # get :产品经理
+      # get :游戏开发
+      # get :新媒体运营
+      # get :硬件开发
+      # get :web开发
+      # get :Android开发
+      # get :云计算
+      # get :测试工程师
     end
   end
 
@@ -20,9 +28,9 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :account do
-    resources :jobs
-  end
+  # namespace :account do
+  #   resources :jobs
+  # end
 
   get 'about', to: 'jobs#about'
 

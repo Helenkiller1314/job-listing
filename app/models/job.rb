@@ -1,9 +1,19 @@
 class Job < ApplicationRecord
   has_many :resumes
+  belongs_to :user
+
+  has_many :job_relationships
+  has_many :members, through: :job_relationships, source: :user
+
+
   scope :published, -> {where(is_hidden: false)}
   scope :recent, -> { order('created_at DESC')}
+  scope :lower_salary, -> { order('wage_lower_bound DESC') }
+  scope :upper_salary, -> { order('wage_upper_bound DESC') }
+
 
   validates :title, presence: true
+  validates :company, presence: true
   validates :wage_upper_bound, presence: true
   validates :wage_lower_bound, presence: true
   validates :wage_lower_bound, numericality: { greater_than: 0}
@@ -18,5 +28,5 @@ class Job < ApplicationRecord
     self.save
   end
 
-  
+
 end
