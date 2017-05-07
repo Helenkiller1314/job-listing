@@ -70,7 +70,8 @@
       <div class="thumbnail">
         <%= image_tag("manager.png") %>
         <div class="caption">
-          <h4><%= link_to("产品经理／主管", jobs_path(:order => "by_developer")) %></h4>
+          <h4><%#= link_to("产品经理／主管", jobs_path(:order => "by_产品经理／主管")) %></h4>
+          <h4><%= link_to("产品经理／主管", category_jobs_path(:order1 => "by_产品经理／主管")) %></h4>
         </div>
       </div>
     </div>

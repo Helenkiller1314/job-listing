@@ -79,6 +79,14 @@ before_action :validate_search_key, only: [:search]
     end
   end
 
+  def category
+    if params[:order1]
+      @jobs = Job.published.where(:category => "产品经理／主管")
+    else params[:order1] && params[:order]
+      @jobs = Job.published.where(:category => "产品经理／主管").order("wage_lower_bound DESC")
+    end
+  end
+
 
   protected
 

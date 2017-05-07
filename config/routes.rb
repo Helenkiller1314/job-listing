@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :resumes
     collection do
       get :search
+      get :category
     end
   end
 
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
       end
       resources :resumes
     end
+  end
+
+  namespace :account do
+    resources :jobs
   end
 
   get 'about', to: 'jobs#about'
